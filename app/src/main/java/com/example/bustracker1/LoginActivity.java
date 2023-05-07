@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressDialog.setMessage("Loading..");
-                progressDialog.setTitle("Checking Credintials");
+                progressDialog.setTitle("Checking Credentials");
                 progressDialog.setCancelable(false);
                 progressDialog.show();
                 user_name=txt1.getText().toString();
@@ -61,8 +61,9 @@ public class LoginActivity extends AppCompatActivity {
                             SharedPreferences.Editor edit=sharedPreferences.edit();
                             String userId=mauth.getUid();
                             edit.putString("UID",userId);
-                            edit.commit();
-//                            Toast.makeText(LoginActivity.this, "Shared preferences stored and they are"+sharedPreferences.getString("UID","not found"), Toast.LENGTH_SHORT).show();
+                            edit.putString("name",user_name);
+                            edit.apply();
+                            Toast.makeText(LoginActivity.this, "Shared preferences stored and they are"+sharedPreferences.getString("UID","not found"), Toast.LENGTH_SHORT).show();
                             progressDialog.cancel();
                             finish();
                             startActivity(new Intent(LoginActivity.this,AfterLogin.class));

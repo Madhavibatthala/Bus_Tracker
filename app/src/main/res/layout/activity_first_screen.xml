@@ -26,13 +26,13 @@
                 android:id="@+id/btn2"
                 android:layout_gravity="center"
                 />
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Contact"
-                android:id="@+id/btn3"
-                android:layout_gravity="center"
-                />
+<!--            <Button-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Contact"-->
+<!--                android:id="@+id/btn3"-->
+<!--                android:layout_gravity="center"-->
+<!--                />-->
 
         </LinearLayout>
 

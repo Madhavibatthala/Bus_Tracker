@@ -43,14 +43,14 @@ public class AfterLogin extends AppCompatActivity {
     Location mlocation;
     private  static  final int REQ_CODE=101;
     DatabaseReference databaseReference;
-
+    String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_login);
         sharedPreferences = getSharedPreferences("SHARED_PREFERENCES", MODE_PRIVATE);
-        databaseReference=FirebaseDatabase.getInstance().getReference().child("buses");
+        databaseReference=FirebaseDatabase.getInstance("https://bus-tracker-aa22e-default-rtdb.firebaseio.com/").getReference().child("buses");
         fusedLocationProviderClient= LocationServices.getFusedLocationProviderClient(this);
         createLocationRequest();
         getLocationUpdates();
@@ -70,15 +70,23 @@ public class AfterLogin extends AppCompatActivity {
             public void onLocationResult(LocationResult locationResult) {
                 super.onLocationResult(locationResult);
                 mlocation=locationResult.getLastLocation();
-                String uid=sharedPreferences.getString("UID","");
+                uid=sharedPreferences.getString("UID","");
+                String name=sharedPreferences.getString("name","");
                 if(!uid.isEmpty())
                 {
-                    HashMap<String,Object> map=new HashMap<>();
+//                    HashMap<String,Object> map=new HashMap<>();
                     String latitude= String.valueOf(mlocation.getLatitude());
                     String longitude= String.valueOf(mlocation.getLongitude());
-                    map.put("latitude",latitude);
-                    map.put("longitude",longitude);
-                    databaseReference.child(uid).updateChildren(map);
+//                    map.put("latitude",latitude);
+//                    map.put("longitude",longitude);
+//                    map.put("name",name);
+                    BusModel bus = new BusModel();
+                    bus.setName(name);
+                    bus.setLatitude(latitude);
+                    bus.setLongitude(longitude);
+                    databaseReference.child(uid).setValue(bus);
+                    Toast.makeText(AfterLogin.this, "uploaded to db", Toast.LENGTH_SHORT).show();
+
                 }
                 Toast.makeText(AfterLogin.this, "The location fetched is "+locationResult.getLastLocation().getLatitude()+"long:"+locationResult.getLastLocation().getLongitude(), Toast.LENGTH_SHORT).show();
             }
@@ -137,11 +145,25 @@ public class AfterLogin extends AppCompatActivity {
             sharedPreferences = getSharedPreferences("SHARED_PREFERENCES", MODE_PRIVATE);
             SharedPreferences.Editor edit = sharedPreferences.edit();
 //            String usrid=FirebaseAuth.getInstance().getUid();
+            FirebaseDatabase database = FirebaseDatabase.getInstance("https://bus-tracker-aa22e-default-rtdb.firebaseio.com/");
+
+            // Retrieve the user's unique identifier
+           // String userId = getSessionUserId();
+
+// Create a reference to the user's node in the database
+            DatabaseReference userRef = database.getReference("buses").child(uid);
+
+// Remove the user's record from the database
+            userRef.removeValue();
+
+// Clear the session or shared preferences
+//            clearSession();
+
             edit.clear();
             edit.commit();
-//            Toast.makeText(this, "logout icon is clicked", Toast.LENGTH_SHORT).show();
-            FirebaseAuth.getInstance().signOut();
-//            Toast.makeText(this, "Signout success", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "logout icon is clicked", Toast.LENGTH_SHORT).show();
+//            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(this, "Signout success", Toast.LENGTH_SHORT).show();
             finish();
             startActivity(new Intent(AfterLogin.this, MainActivity.class));
         }

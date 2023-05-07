@@ -1,42 +1,33 @@
 {
   "project_info": {
-    "project_number": "532635467194",
-    "firebase_url": "https://bustracker-266105.firebaseio.com",
-    "project_id": "bustracker-266105",
-    "storage_bucket": "bustracker-266105.appspot.com"
+    "project_number": "67190094902",
+    "project_id": "bus-tracker-aa22e",
+    "storage_bucket": "bus-tracker-aa22e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:532635467194:android:6f4109706f26af3c0a3183",
+        "mobilesdk_app_id": "1:67190094902:android:bd94dad00d68e4034cac97",
         "android_client_info": {
           "package_name": "com.example.bustracker1"
         }
       },
       "oauth_client": [
         {
-          "client_id": "532635467194-134bd1pt4bfi7nttg526cq18co6voa2t.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.bustracker1",
-            "certificate_hash": "61e5e5c00ed8d6fed08df2ef982926a115f4565d"
-          }
-        },
-        {
-          "client_id": "532635467194-sui1ekvs7d5h5dkdt2569shvs0digrco.apps.googleusercontent.com",
+          "client_id": "67190094902-ludnv3q80ms6u6v8u3lnr8ice4pv9ulf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDVm_vjV0WIgOb2ZPFFHeMPYlW4JRObSiw"
+          "current_key": "AIzaSyCxEMaepmpG3LkJfOftsM3L6jzjj1OzGs8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "532635467194-sui1ekvs7d5h5dkdt2569shvs0digrco.apps.googleusercontent.com",
+              "client_id": "67190094902-ludnv3q80ms6u6v8u3lnr8ice4pv9ulf.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

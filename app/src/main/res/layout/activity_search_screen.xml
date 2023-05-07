@@ -7,6 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".SearchScreen">
 
+<!--    <com.google.android.gms.maps.MapView-->
+<!--        android:id="@+id/mapView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent" />-->
+
+<!--    <FrameLayout-->
+<!--        android:id="@+id/map_container"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="?android:attr/actionBarSize" />-->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,13 +46,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:map="http://schemas.android.com/apk/res-auto"
+        <fragment xmlns:map="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/map1"
             android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:apiKey="AIzaSyCxEMaepmpG3LkJfOftsM3L6jzjj1OzGs8"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".MapsActivity" />
+            tools:context=".SearchScreen" />
     </LinearLayout>
 </LinearLayout>
